@@ -46,12 +46,12 @@ def knn(x,y,train,k=5):
 
 path = 'E:\\SIProject\\dataset\\'
 
-face_data = []  #np.array kro isko owl
+face_data = [] 
 labels  = []
 
 for fx in os.listdir(path):
     #print(path+fx)
-    image=cv2.imread(path+fx) # basepath kon add karega owl :-p
+    image=cv2.imread(path+fx) 
     image= cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image = cv2.resize(image, (50,50)) # resize 50,50 shape
     face_data.append(image)
@@ -62,52 +62,19 @@ for fx in os.listdir(path):
     labels.append(label[0])
 
 
-# In[153]:
+
 
 
 face_data = np.concatenate(face_data, axis=0).reshape(-1, 50*50*3)
 
-
-# In[154]:
-
-
 labels = np.array(labels)
 
-
-# In[155]:
-
-
-face_data.shape
-
-
-# In[156]:
-
-
-# owl :-p
 plt.imshow(face_data[19].reshape(50,50,3))
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[158]:
 
 
 cap=cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
 
-
-        
-# print(labels)
 
 while True:
         ret, img = cap.read()
@@ -136,22 +103,5 @@ while True:
         
 cap.release() 
 cv2.destroyAllWindows()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
 
 
